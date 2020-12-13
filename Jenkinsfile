@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    registryCredential = 'fluppirt'
+    registryCredential = 'dockerhub1'
   }
   
   agent any
