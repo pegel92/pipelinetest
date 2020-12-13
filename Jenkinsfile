@@ -1,5 +1,9 @@
 pipeline {
 
+  environment {
+    registryCredential = 'fluppirt'
+  }
+  
   agent any
 
   stages {
@@ -21,7 +25,7 @@ pipeline {
       stage("Push image") {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'fluppirt') {
+                    docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
                             myapp.push("latest")
                             myapp.push("${env.BUILD_ID}")
                     }
